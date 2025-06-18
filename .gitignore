@@ -1,0 +1,10 @@
+# Ignore secrets
+.streamlit/secrets.toml
+
+# Byte files
+__pycache__/
+*.pyc
+
+# OS specific
+.DS_Store
+Thumbs.db
