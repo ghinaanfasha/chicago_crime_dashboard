@@ -1,5 +1,5 @@
 # Ignore secrets
-.streamlit/secrets.toml
+streamlit/secrets.toml
 
 # Byte files
 __pycache__/
