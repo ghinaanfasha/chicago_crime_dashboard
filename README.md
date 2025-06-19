@@ -1,6 +1,6 @@
 # Panduan Menjalankan Aplikasi Dashboard
 
-Aplikasi ini dibuat menggunakan **Python** dengan framework **Streamlit** untuk visualisasi data dalam bentuk dashboard interaktif, serta menggunakan **PostgreSQL** sebagai sistem manajemen database. File SQL untuk database sudah tersedia dan dapat langsung diimpor.
+Aplikasi ini dibuat menggunakan **Python** dengan framework **Streamlit** untuk visualisasi data dalam bentuk dashboard interaktif, serta menggunakan **PostgreSQL** sebagai sistem manajemen data warehouse. File SQL untuk data warehouse sudah tersedia dan dapat langsung diimport.
 Aplikasi dapat diakses melalui: 
 **https://chicagocrimedashboard.streamlit.app/**
 
@@ -25,21 +25,28 @@ Pertama, clone repositori ini ke komputer lokal Anda menggunakan perintah beriku
 **https://github.com/ghinaanfasha/chicago_crime_dashboard.git**    
 Jika Anda tidak menggunakan Git, Anda dapat mengunduh repositori ini dalam bentuk ZIP dan mengekstraknya.
 
-### 2.Buat & Konfigurasi Database PostgreSQL
+### 2.Buat & Konfigurasi PostgreSQL
 
-Buka pgAdmin atau gunakan psql untuk membuat database baru dengan nama:
+Buka pgAdmin lalu buat database baru dengan nama:
 
 **chicago_crime**
 
+Atau bisa menggunakan nama lain, sesuaikan dengan konfigurasi aplikasi nantinya.
 Lalu Import file SQL dari folder database ke database yang baru dibuat:
 
-  a. **Melalui pgAdmin**  
-      Klik kanan pada database → pilih **Restore** → pilih file `chicago_crime.sql` dari folder `database/`.
+  a. **SQL Shell (psql)**  
 
-   b. **Melalui terminal**  
-      Jalankan perintah berikut di terminal:
+  b. **Ikuti prompt:**  
+  
+        - Server: (enter saja kalau localhost)
+        - Database: masukkan nama database tujuan
+        - Username: masukkan postgres atau user Anda
+        - Password: masukkan password
+        
+  c. **Setelah masuk, masukkan path file sql**:
+  
  ```bash
- psql -U postgres -d chicago_crime -f database/chicago_crime.sql
+ \i 'C:/path/ke/file.sql'
  ```
      	
 ### 3. Konfigurasi Koneksi Database
@@ -50,7 +57,7 @@ Buka file db_config.py dan pastikan konfigurasi seperti berikut:
     'port': '5432',
     'database': 'nama_database',
     'user': 'postgres',
-    'password': 'password_anda'
+    'password': 'password'
 }
  ```
 
