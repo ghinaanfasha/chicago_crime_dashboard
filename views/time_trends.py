@@ -442,10 +442,12 @@ def show():
                     """, unsafe_allow_html=True)
 
                 if not all_filters_selected and filtered_total_incidents != total_cases:
-                    st.info(f"📊 **Perbandingan:** Dari total {total_cases:,} kasus, terdapat {filtered_total_incidents:,} kasus yang sesuai dengan filter yang dipilih ({(filtered_total_incidents/total_cases*100):.1f}% dari total)")
+                    percentage = (filtered_total_incidents/total_cases*100)
+                    percentage_str = f"{percentage:.4f}".rstrip('0').rstrip('.')
+                    st.info(f"📊 **Perbandingan:** Dari total {total_cases:,} kasus, terdapat {filtered_total_incidents:,} kasus yang sesuai dengan filter yang dipilih ({percentage_str}% dari total)")
                 elif all_filters_selected:
                     st.info(f"📊 **Status:** Menampilkan semua {total_cases:,} kasus dalam rentang waktu yang dipilih")
-                
+            
             else:
                 st.warning("Tidak ada data yang tersedia untuk filter yang dipilih")
 

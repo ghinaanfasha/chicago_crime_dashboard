@@ -468,13 +468,11 @@ def show():
                 if all_filters_selected:
                     st.info(f"📊 **Status:** Menampilkan semua {total_cases:,} kasus dalam rentang waktu yang dipilih")
                 else:
-                    if filtered_total_incidents > 0:
-                        percentage = (filtered_total_incidents/total_cases*100) if total_cases > 0 else 0
-                        st.info(f"📊 **Perbandingan:** Dari total {total_cases:,} kasus, terdapat {filtered_total_incidents:,} kasus yang sesuai dengan filter yang dipilih ({percentage:.1f}% dari total)")
-                    else:
-                        st.warning(f"📊 **Tidak ada data:** Tidak ditemukan kasus yang sesuai dengan filter yang dipilih dari total {total_cases:,} kasus")
+                    percentage = (filtered_total_incidents/total_cases*100) if total_cases > 0 else 0
+                    percentage_str = f"{percentage:.4f}".rstrip('0').rstrip('.')
+                    st.info(f"📊 **Perbandingan:** Dari total {total_cases:,} kasus, terdapat {filtered_total_incidents:,} kasus yang sesuai dengan filter yang dipilih ({percentage_str}% dari total)")
                        
             else:
-                st.warning("Tidak ada data kejahatan untuk kategori area dan rentang tanggal yang dipilih.")
+                st.warning("Tidak ada data yang tersedia untuk filter yang dipilih")
     else:
         st.warning("Silakan pilih rentang waktu yang valid (tanggal mulai dan tanggal akhir).")
