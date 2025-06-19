@@ -6,7 +6,7 @@ Aplikasi dapat diakses melalui:
 
 **https://chicagocrimedashboard.streamlit.app/**
 
-Apabila ingin melakukan installasi dan menjalankan aplikasi di lingkungan lokal anda, dapat pengikut langkah-langkah sebagai berikut:
+Apabila ingin melakukan installasi dan menjalankan aplikasi di lingkungan lokal Anda, dapat pengikut langkah-langkah sebagai berikut:
 
 ## Prasyarat
 
@@ -36,8 +36,10 @@ Buka pgAdmin lalu buat database baru dengan nama:
 Atau bisa menggunakan nama lain, sesuaikan dengan konfigurasi aplikasi nantinya.
 Lalu Import file SQL dari folder database ke database yang baru dibuat:
 
-  a. **SQL Shell (psql)**  
+  a. **Buka SQL Shell (psql)**  
 
+  Saat instalasi PostgreSQL, biasanya sudah ada aplikasi SQL Shell (psql).
+        
   b. **Ikuti prompt:**  
   
         - Server [localhost]    : (enter saja kalau localhost)
