@@ -30,6 +30,7 @@ Jika Anda tidak menggunakan Git, Anda dapat mengunduh repositori ini dalam bentu
 1) Buka pgAdmin atau gunakan psql untuk membuat database baru dengan nama:
 chicago_crime
 2) Impor file SQL dari folder database/ ke database yang baru dibuat:
+
   a. **Melalui pgAdmin**  
       Klik kanan pada database → pilih **Restore** → pilih file `chicago_crime.sql` dari folder `database/`.
 
@@ -43,22 +44,29 @@ chicago_crime
 
 ### 3. Konfigurasi Koneksi Database
 Buka file db_config.py dan pastikan konfigurasi seperti berikut:
-DB_CONFIG = {
+ ```bash
+ DB_CONFIG = {
     'host': 'localhost',
     'port': '5432',
     'database': 'nama_database',
     'user': 'postgres',
     'password': 'password_anda'
 }
+ ```
+
 Sesuaikan kongurasi diatas dengan konfigurasi database PostgreSQL anda
 
 ### 4. Instalasi Dependensi Python
 
 Setelah database dibuat, jalankan perintah berikut di terminal untuk menginstall dependensi yang dibutuhkan:  
-**pip install -r requirements.txt**
+ ```bash
+ pip install -r requirements.txt
+ ```
 
 ### 5. Jalankan Aplikasi Dashboard
 
 Setelah semua langkah di atas selesai, Anda dapat menjalankan aplikasi dengan perintah:  
-**streamlit run main.py**  
+ ```bash
+ streamlit run main.py
+ ```
 Aplikasi akan berjalan di **http://localhost:8501**. Buka alamat tersebut di browser Anda.
