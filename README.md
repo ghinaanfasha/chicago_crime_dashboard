@@ -1,7 +1,9 @@
 # Panduan Menjalankan Aplikasi Dashboard
 
 Aplikasi ini dibuat menggunakan **Python** dengan framework **Streamlit** untuk visualisasi data dalam bentuk dashboard interaktif, serta menggunakan **PostgreSQL** sebagai sistem manajemen data warehouse. File SQL untuk data warehouse sudah tersedia dan dapat langsung diimport.
+
 Aplikasi dapat diakses melalui: 
+
 **https://chicagocrimedashboard.streamlit.app/**
 
 Apabila ingin melakukan installasi dan menjalankan aplikasi di lingkungan lokal anda, dapat pengikut langkah-langkah sebagai berikut:
@@ -41,7 +43,7 @@ Lalu Import file SQL dari folder database ke database yang baru dibuat:
         - Server [localhost]    : (enter saja kalau localhost)
         - Database              : masukkan nama database tujuan
         - Port [5432]           : (enter saja kalau port 5432)
-        - Username [postgres]   : masukkan username Anda (enter saja kalau username postgres)
+        - Username [postgres]   : (enter saja kalau username postgres)
         - Password              : masukkan password
         
   c. **Setelah masuk, masukkan path file sql**:
