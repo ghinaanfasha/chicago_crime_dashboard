@@ -27,11 +27,11 @@ Jika Anda tidak menggunakan Git, Anda dapat mengunduh repositori ini dalam bentu
 
 ### 2.Buat & Konfigurasi Database PostgreSQL
 
-1) Buka pgAdmin atau gunakan psql untuk membuat database baru dengan nama:
+Buka pgAdmin atau gunakan psql untuk membuat database baru dengan nama:
 
 **chicago_crime**
 
-2) Impor file SQL dari folder database/ ke database yang baru dibuat:
+Lalu Import file SQL dari folder database ke database yang baru dibuat:
 
   a. **Melalui pgAdmin**  
       Klik kanan pada database → pilih **Restore** → pilih file `chicago_crime.sql` dari folder `database/`.
