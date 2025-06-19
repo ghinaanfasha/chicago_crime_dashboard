@@ -24,7 +24,9 @@ Sebelum memulai, pastikan Anda telah menginstal software berikut:
 ### 1. Clone atau Unduh Repository
 
 Pertama, clone repositori ini ke komputer lokal Anda menggunakan perintah berikut:  
-**https://github.com/ghinaanfasha/chicago_crime_dashboard.git**    
+ ```bash
+git clone https://github.com/ghinaanfasha/chicago_crime_dashboard.git
+ ```   
 Jika Anda tidak menggunakan Git, Anda dapat mengunduh repositori ini dalam bentuk ZIP dan mengekstraknya.
 
 ### 2.Buat & Konfigurasi PostgreSQL
@@ -41,7 +43,6 @@ Lalu Import file SQL dari folder database ke database yang baru dibuat:
   Saat instalasi PostgreSQL, biasanya sudah ada aplikasi SQL Shell (psql).
         
   b. **Ikuti prompt:**  
-  
         - Server [localhost]    : (enter saja kalau localhost)
         - Database              : masukkan nama database tujuan
         - Port [5432]           : (enter saja kalau port 5432)
@@ -49,7 +50,6 @@ Lalu Import file SQL dari folder database ke database yang baru dibuat:
         - Password              : masukkan password
         
   c. **Setelah masuk, masukkan path file sql**:
-  
  ```bash
  \i 'C:/path/ke/file.sql'
  ```
