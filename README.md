@@ -38,10 +38,11 @@ Lalu Import file SQL dari folder database ke database yang baru dibuat:
 
   b. **Ikuti prompt:**  
   
-        - Server: (enter saja kalau localhost)
-        - Database: masukkan nama database tujuan
-        - Username: masukkan postgres atau user Anda
-        - Password: masukkan password
+        - Server [localhost]    : (enter saja kalau localhost)
+        - Database              : masukkan nama database tujuan
+        - Port [5432]           : (enter saja kalau port 5432)
+        - Username [postgres]   : masukkan username Anda (enter saja kalau username postgres)
+        - Password              : masukkan password
         
   c. **Setelah masuk, masukkan path file sql**:
   
