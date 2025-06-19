@@ -43,6 +43,7 @@ Lalu Import file SQL dari folder database ke database yang baru dibuat:
   Saat instalasi PostgreSQL, biasanya sudah ada aplikasi SQL Shell (psql).
         
   b. **Ikuti prompt:**  
+  
         - Server [localhost]    : (enter saja kalau localhost)
         - Database              : masukkan nama database tujuan
         - Port [5432]           : (enter saja kalau port 5432)
@@ -65,8 +66,7 @@ Buka file db_config.py dan pastikan konfigurasi seperti berikut:
     'password': 'password'
 }
  ```
-
-Sesuaikan kongurasi diatas dengan konfigurasi database PostgreSQL anda
+Sesuaikan kongurasi diatas dengan konfigurasi database PostgreSQL Anda
 
 ### 4. Instalasi Dependensi Python
 
