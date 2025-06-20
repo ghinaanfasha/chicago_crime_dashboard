@@ -1,6 +1,6 @@
 # Panduan Menjalankan Aplikasi Dashboard
 
-Aplikasi ini dibuat menggunakan **Python** dengan framework **Streamlit** untuk visualisasi data dalam bentuk dashboard interaktif, serta menggunakan **PostgreSQL** sebagai sistem manajemen data warehouse. File SQL untuk data warehouse sudah tersedia dan dapat langsung diimport.
+Aplikasi ini dibuat menggunakan **Python** dengan framework **Streamlit** untuk visualisasi data dalam bentuk dashboard interaktif, serta menggunakan **PostgreSQL** sebagai sistem manajemen data warehouse. Dataset yang digunakan berasal dari dataset publik yang tersedia di Kaggle dengan tautan: https://www.kaggle.com/datasets/chicago/chicago-crime/data. File SQL untuk data warehouse sudah tersedia dan dapat langsung diimport.
 
 Aplikasi dapat diakses melalui: 
 
