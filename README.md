@@ -6,7 +6,7 @@ Aplikasi dapat diakses melalui:
 
 **https://chicagocrimedashboard.streamlit.app/**
 
-Apabila ingin melakukan installasi dan menjalankan aplikasi di lingkungan lokal Anda, dapat pengikut langkah-langkah sebagai berikut:
+Apabila ingin melakukan installasi dan menjalankan aplikasi di lingkungan lokal Anda, dapat mengikuti langkah-langkah sebagai berikut:
 
 ## Prasyarat
 
