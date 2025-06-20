@@ -56,7 +56,7 @@ Lalu Import file SQL dari folder database ke database yang baru dibuat:
  ```
      	
 ### 3. Konfigurasi Koneksi Database
-Buka file db_config.py dan pastikan konfigurasi seperti berikut:
+Buka file connection.py dalam folder database dan pastikan konfigurasi seperti berikut:
  ```bash
  DB_CONFIG = {
     'host': 'localhost',
