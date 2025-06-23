@@ -98,21 +98,58 @@ def show():
     st.subheader("Crime History")
     df_monthly = get_crime_history_data()
     if not df_monthly.empty:
-        fig_history = px.line(df_monthly, x='Year', y='Total Crime', title='Total Crime Over Years')
-        fig_history.update_traces(
+        df_monthly['Arrest_Percentage'] = (df_monthly['Arrested Cases'] / df_monthly['Total Crime'] * 100).round(2)
+
+        fig_history = go.Figure()
+
+        fig_history.add_trace(go.Scatter(
+            x=df_monthly['Year'],
+            y=df_monthly['Total Crime'],
+            mode='lines',
+            name='Total Crime',
             line=dict(color='#8979FF', width=4, shape='spline'),
-            marker=dict(size=8, color='#8979FF', line=dict(width=2, color='white')),
             fill='tonexty',
-            fillcolor='rgba(137, 121, 255, 0.1)'
-        )
+            fillcolor='rgba(137, 121, 255, 0.1)',
+            hovertemplate='<b>%{fullData.name}</b><br>' +
+                        'Year: %{x}<br>' +
+                        'Total Cases: %{y:,}<br>' +
+                        '<extra></extra>'
+        ))
+
+        fig_history.add_trace(go.Scatter(
+            x=df_monthly['Year'],
+            y=df_monthly['Arrested Cases'],
+            mode='lines',
+            name='Arrested Cases',
+            line=dict(color='#FF6B6B', width=4, shape='spline'),
+            fill='tonexty',
+            fillcolor='rgba(255, 107, 107, 0.1)',
+            customdata=df_monthly['Arrest_Percentage'],
+            hovertemplate='<b>%{fullData.name}</b><br>' +
+                        'Year: %{x}<br>' +
+                        'Arrested Cases: %{y:,}<br>' +
+                        'Arrest Rate: %{customdata}%<br>' +
+                        '<extra></extra>'
+        ))
+        
         fig_history.update_layout(
+            title='Total Crime and Arrests Over Years',
             xaxis_title="Year",
-            yaxis_title="Total Crime",
-            showlegend=False,
+            yaxis_title="Number of Cases",
+            showlegend=True,
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
             font=dict(color='white'),
             title_font=dict(size=18, color='white'),
+            legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.02,
+                xanchor="right",
+                x=1,
+                bgcolor='rgba(0,0,0,0)',
+                font=dict(color='white')
+            ),
             xaxis=dict(
                 gridcolor='rgba(128,128,128,0.2)',
                 showgrid=True,
@@ -123,16 +160,9 @@ def show():
                 showgrid=True,
                 zeroline=False
             ),
-            margin=dict(l=0, r=0, t=40, b=0)
+            margin=dict(l=0, r=0, t=60, b=0)
         )
-        fig_history.add_shape(
-            type="rect",
-            xref="paper", yref="paper",
-            x0=0, y0=0, x1=1, y1=1,
-            line=dict(color="rgba(0,0,0,0)"),
-            fillcolor="rgba(0,0,0,0)",
-            layer="below"
-        )
+        
         st.plotly_chart(fig_history, use_container_width=True)
     else:
         st.error("No data available for crime history chart")

@@ -96,22 +96,28 @@ def get_arrest_rate():
         return 0
     
 def get_crime_history_data():
-    """Get total cases per year for crime history chart"""
+    """Get total cases per year for crime history chart including arrest data"""
     engine = init_connection()
     if engine is None:
         return pd.DataFrame()
     
     try:
         query = """
-        SELECT dim_date.year,
-               SUM(crime_facts.incident_count) AS total_cases
+        SELECT 
+            dim_date.year,
+            SUM(crime_facts.incident_count) AS total_cases,
+            SUM(CASE WHEN crime_facts.arrest_status = TRUE THEN crime_facts.incident_count ELSE 0 END) AS arrested_cases
         FROM crime_facts
         JOIN dim_date ON crime_facts.id_date = dim_date.id_date
         GROUP BY dim_date.year
         ORDER BY dim_date.year;
         """
         df = pd.read_sql_query(query, engine)
-        df = df.rename(columns={'year': 'Year', 'total_cases': 'Total Crime'})
+        df = df.rename(columns={
+            'year': 'Year', 
+            'total_cases': 'Total Crime',
+            'arrested_cases': 'Arrested Cases'
+        })
         return df
     except Exception as e:
         st.error(f"Error fetching crime history data: {e}")
