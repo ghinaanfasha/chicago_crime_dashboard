@@ -1,10 +1,12 @@
 # Panduan Menjalankan Aplikasi Dashboard
 
-Aplikasi ini dibuat menggunakan **Python** dengan framework **Streamlit** untuk visualisasi data dalam bentuk dashboard interaktif, serta menggunakan **PostgreSQL** sebagai sistem manajemen database. File SQL untuk database sudah tersedia dan dapat langsung diimpor.
+Aplikasi ini dibuat menggunakan **Python** dengan framework **Streamlit** untuk visualisasi data dalam bentuk dashboard interaktif, serta menggunakan **PostgreSQL** sebagai sistem manajemen data warehouse. Dataset yang digunakan berasal dari dataset publik yang tersedia di Kaggle dengan tautan: https://www.kaggle.com/datasets/chicago/chicago-crime/data. File SQL untuk data warehouse sudah tersedia dan dapat langsung diimport.
+
 Aplikasi dapat diakses melalui: 
+
 **https://chicagocrimedashboard.streamlit.app/**
 
-Apabila ingin melakukan installasi dan menjalankan aplikasi di lingkungan lokal anda, dapat pengikut langkah-langkah sebagai berikut:
+Apabila ingin melakukan installasi dan menjalankan aplikasi di lingkungan lokal Anda, dapat mengikuti langkah-langkah sebagai berikut:
 
 ## Prasyarat
 
@@ -22,39 +24,49 @@ Sebelum memulai, pastikan Anda telah menginstal software berikut:
 ### 1. Clone atau Unduh Repository
 
 Pertama, clone repositori ini ke komputer lokal Anda menggunakan perintah berikut:  
-**https://github.com/ghinaanfasha/chicago_crime_dashboard.git**    
+ ```bash
+git clone https://github.com/ghinaanfasha/chicago_crime_dashboard.git
+ ```   
 Jika Anda tidak menggunakan Git, Anda dapat mengunduh repositori ini dalam bentuk ZIP dan mengekstraknya.
 
-### 2.Buat & Konfigurasi Database PostgreSQL
+### 2.Buat & Konfigurasi PostgreSQL
 
-Buka pgAdmin atau gunakan psql untuk membuat database baru dengan nama:
+Buka pgAdmin lalu buat database baru dengan nama:
 
 **chicago_crime**
 
+Atau bisa menggunakan nama lain, sesuaikan dengan konfigurasi aplikasi nantinya.
 Lalu Import file SQL dari folder database ke database yang baru dibuat:
 
-  a. **Melalui pgAdmin**  
-      Klik kanan pada database → pilih **Restore** → pilih file `chicago_crime.sql` dari folder `database/`.
+  a. **Buka SQL Shell (psql)**  
 
-   b. **Melalui terminal**  
-      Jalankan perintah berikut di terminal:
+  Saat instalasi PostgreSQL, biasanya sudah ada aplikasi SQL Shell (psql).
+        
+  b. **Ikuti prompt:**  
+  
+        - Server [localhost]    : (enter saja kalau localhost)
+        - Database              : masukkan nama database tujuan
+        - Port [5432]           : (enter saja kalau port 5432)
+        - Username [postgres]   : (enter saja kalau username postgres)
+        - Password              : masukkan password
+        
+  c. **Setelah masuk, masukkan path file sql**:
  ```bash
- psql -U postgres -d chicago_crime -f database/chicago_crime.sql
+ \i 'C:/path/ke/file.sql'
  ```
      	
 ### 3. Konfigurasi Koneksi Database
-Buka file db_config.py dan pastikan konfigurasi seperti berikut:
+Buka file connection.py dalam folder database dan pastikan konfigurasi seperti berikut:
  ```bash
  DB_CONFIG = {
     'host': 'localhost',
     'port': '5432',
     'database': 'nama_database',
     'user': 'postgres',
-    'password': 'password_anda'
+    'password': 'password'
 }
  ```
-
-Sesuaikan kongurasi diatas dengan konfigurasi database PostgreSQL anda
+Sesuaikan kongurasi diatas dengan konfigurasi database PostgreSQL Anda
 
 ### 4. Instalasi Dependensi Python
 
